@@ -1,2 +1,2 @@
 # vagrant-swarm
-vagrant script for swarm cluster
+vagrant script for swarm and compose cluster
