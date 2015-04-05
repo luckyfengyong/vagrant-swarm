@@ -11,6 +11,7 @@ function installUtilities {
 	echo "install utilities"
 
 	# run docker command inside docker http://www.therightcode.net/run-docker-into-a-container-on-a-mac/
+	# install docker in ubuntu http://docs.docker.com/installation/ubuntulinux/
 	apt-get update -y
 	apt-get install -y curl
 	curl -sSL https://get.docker.com/ubuntu/ | sh
