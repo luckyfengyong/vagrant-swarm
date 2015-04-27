@@ -25,6 +25,8 @@ etcdctl --peers 10.211.62.101:4001 set key1 value1
 
 Refer to https://github.com/coreos/etcd/blob/master/Documentation/admin_guide.md for more info of etcd
 
-# Eclipce for Go
+# Go programming
 
-http://goclipse.googlecode.com/svn/trunk/goclipse-update-site/
+goclipse: http://goclipse.googlecode.com/svn/trunk/goclipse-update-site/
+
+golang: https://golang.org/doc/
