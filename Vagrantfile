@@ -27,6 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				s.path = "scripts/setup-ubuntu-hosts.sh"
 				s.args = "-t #{numNodes}"
 			end
+			node.vm.provision "shell", path: "scripts/setup-etcd.sh"
 		end
 	end
 end
