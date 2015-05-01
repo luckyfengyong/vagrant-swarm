@@ -21,7 +21,7 @@ function installUtilities {
 
 	# install swarm https://github.com/docker/swarm/ http://docs.docker.com/swarm/
 	# http://docs.docker.com/swarm/discovery/ http://matthewkwilliams.com/index.php/2015/04/03/swarming-raspberry-pi-docker-swarm-discovery-options/
-	apt-get install -y golang git
+	apt-get install -y golang git cgdb
 	/bin/mkdir -p /usr/local/src/gocode; export GOPATH=/usr/local/src/gocode; export PATH=${GOPATH}/bin:${PATH}
 	cp -f /vagrant/resources/swarm/swarm.sh /etc/profile.d/swarm.sh
 	chmod +x /etc/profile.d/swarm.sh
@@ -38,9 +38,13 @@ function installUtilities {
 
 	# install compose https://github.com/docker/compose/releases
 	# https://docs.docker.com/compose/
-	curl -L https://github.com/docker/compose/releases/download/1.2.0rc3/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+	# https://github.com/docker/compose/blob/master/CONTRIBUTING.md
+	curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+	apt-get install -y python2.7-dev libyaml-dev python-pip
+	pip install docker-py
+	curl -L https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 	chmod +x /usr/local/bin/docker-compose
-	curl -L https://raw.githubusercontent.com/docker/compose/1.2.0rc3/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
+	curl -L https://raw.githubusercontent.com/docker/compose/1.2.0/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose
 }
 echo "setup ubuntu"
 
